@@ -6,6 +6,36 @@ const spaceshipCount = document.getElementById("spaceship");
 fillCount();
 fillTable()
 
+// Google chart
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+async function drawChart() {
+    const response = await swapiGet("vehicles/");
+    const vehiclesArray = response.data.results;
+    console.log(vehiclesArray)
+
+    const dataArray = [];
+    dataArray.push(["Vehicles", "Passangers"]);
+    vehiclesArray.forEach((vehicle) => {
+        dataArray.push([vehicle.name, Number(vehicle.passengers)]);
+    });
+
+    var data = google.visualization.arrayToDataTable(dataArray);
+
+    var options = {
+        title: 'The big vehicles',
+        legend: 'none'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+}
+
+// Top cards
+
 function fillCount(){
     Promise.all([swapiGet('people/'),
                  swapiGet('vehicles/'),
@@ -20,10 +50,12 @@ function fillCount(){
     })
 }
 
+// Table 
+
 async function fillTable() {
     const response = await swapiGet('films/');
     const tableData = response.data.results;
-    console.log(tableData);
+    // console.log(tableData);
     tableData.forEach(film => {
         $("#filmsTable").append(
             `<tr>
@@ -35,6 +67,8 @@ async function fillTable() {
     })
     
 }
+
+// API swapi
 
 function swapiGet(param) {
    return axios.get(`https://swapi.dev/api/${param}`)
