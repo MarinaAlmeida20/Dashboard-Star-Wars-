@@ -1,6 +1,6 @@
 # Star Wars Dashboard
 
-Hi! This is a project developed with the intention to  **learn** how to develope a dashboard.
+Hi! This is a project developed with the intention to  **learn** how to develop a dashboard.
 
 ##  Technologies
 
@@ -18,7 +18,7 @@ Hi! This is a project developed with the intention to  **learn** how to develope
   - Axios
 	- To makes promises based HTTP client for the browser.
   - Moment
-    - Used to manipulate and format dates.
+   	- Used to manipulate and format dates.
 
 ## Tools
 
