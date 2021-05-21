@@ -32,4 +32,4 @@ Hi! This is a project developed with the intention to  **learn** how to develop 
 - Swapi
 	- Is a Star Wars API documentation with the resources available and  with HTTP requests, with a lot of data about Star Wars.
 
- 
+ ![](https://github.com/MarinaAlmeida20/Dashboard-Star-Wars-/blob/main/assets/dashboardPrint.jpg?raw=true)
